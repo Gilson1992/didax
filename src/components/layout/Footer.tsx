@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import eeduLogo from '@/assets/eedu-logo.png';
 
 export const Footer = () => (
   <footer className="bg-foreground text-primary-foreground">
     <div className="section-container py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="lg:col-span-1">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-sm font-extrabold">
-              E
-            </div>
-            <span className="text-lg font-bold">EEDU</span>
+          <div className="flex items-center mb-4">
+            <img src={eeduLogo} alt="EEDU" className="h-8 brightness-0 invert" />
           </div>
           <p className="text-sm opacity-60 leading-relaxed max-w-[240px]">
             Gestão integrada para a educação acontecer.

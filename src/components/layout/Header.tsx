@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu } from 'lucide-react';
+import eeduLogo from '@/assets/eedu-logo.png';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { PresentationModal } from '@/components/modals/PresentationModal';
@@ -51,11 +52,8 @@ export const Header = () => {
         }`}
       >
         <div className="section-container flex items-center justify-between h-16 lg:h-[72px]">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-primary-foreground text-sm font-extrabold">
-              E
-            </div>
-            <span className="text-xl font-bold gradient-text tracking-tight">EEDU</span>
+          <Link to="/" className="flex items-center">
+            <img src={eeduLogo} alt="EEDU" className="h-8" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -99,11 +97,8 @@ export const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px]">
               <div className="flex flex-col gap-6 mt-8">
-                <Link to="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                  <div className="w-7 h-7 rounded-lg gradient-primary flex items-center justify-center text-primary-foreground text-xs font-extrabold">
-                    E
-                  </div>
-                  <span className="text-lg font-bold gradient-text">EEDU</span>
+                <Link to="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
+                  <img src={eeduLogo} alt="EEDU" className="h-7" />
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) =>
