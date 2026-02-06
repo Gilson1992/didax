@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { LayoutGrid, Plug, BarChart3, Rocket, ArrowRight } from 'lucide-react';
+import { LayoutGrid, Plug, BarChart3, Rocket, Compass, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const solutions = [
@@ -28,6 +28,12 @@ const solutions = [
     title: 'Implantação & Evolução',
     desc: 'Diagnóstico, configuração, capacitação e acompanhamento contínuo com a sua equipe.',
     icon: Rocket,
+  },
+  {
+    id: 'consultoria',
+    title: 'Consultoria Estratégica',
+    desc: 'Mapeamento de dores e prioridades da rede, com recomendações práticas para governança, automação e tomada de decisão orientada por dados.',
+    icon: Compass,
   },
 ];
 
