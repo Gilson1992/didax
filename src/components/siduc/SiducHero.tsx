@@ -4,6 +4,7 @@ import { Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DashboardPreview } from './DashboardPreview';
 import { DemoModal } from '@/components/modals/DemoModal';
+import siducLogo from '@/assets/siduc-logo.png';
 
 const bullets = [
   'Centralização e padronização',
@@ -25,13 +26,10 @@ export const SiducHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="section-badge mb-6">
-              <span className="w-1.5 h-1.5 rounded-full gradient-primary" />
-              Sistema Integrado
-            </div>
+            <img src={siducLogo} alt="SIDUC" className="h-12 sm:h-14 mb-6" />
 
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.15] tracking-tight text-foreground">
-              <span className="gradient-text">SIDUC</span> — Gestão integrada do ecossistema educacional.
+              Gestão integrada do ecossistema educacional.
             </h1>
 
             <p className="mt-6 text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
