@@ -1,14 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { HeroSection } from '@/components/home/HeroSection';
+import { ChallengesSection } from '@/components/home/ChallengesSection';
+import { BeforeAfterSection } from '@/components/home/BeforeAfterSection';
+import { SolutionsSection } from '@/components/home/SolutionsSection';
+import { HowWeWorkSection } from '@/components/home/HowWeWorkSection';
+import { SecuritySection } from '@/components/home/SecuritySection';
+import { HomeFAQ } from '@/components/home/HomeFAQ';
+import { HomeCTA } from '@/components/home/HomeCTA';
 
-const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+const Index = () => (
+  <>
+    <HeroSection />
+    <ChallengesSection />
+    <BeforeAfterSection />
+    <SolutionsSection />
+    <HowWeWorkSection />
+    <SecuritySection />
+    <HomeFAQ />
+    <HomeCTA />
+  </>
+);
 
 export default Index;
