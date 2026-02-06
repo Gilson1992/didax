@@ -26,7 +26,7 @@ export const SiducHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <img src={siducLogo} alt="SIDUC" className="h-12 sm:h-14 mb-6" />
+            <img src={siducLogo} alt="SIDUC" className="h-16 sm:h-20 mb-6" />
 
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.15] tracking-tight text-foreground">
               Gestão integrada do ecossistema educacional.

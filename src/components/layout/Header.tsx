@@ -53,7 +53,7 @@ export const Header = () => {
       >
         <div className="section-container flex items-center justify-between h-16 lg:h-[72px]">
           <Link to="/" className="flex items-center">
-            <img src={eeduLogo} alt="EEDU" className="h-8" />
+            <img src={eeduLogo} alt="EEDU" className="h-10" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -98,7 +98,7 @@ export const Header = () => {
             <SheetContent side="right" className="w-[280px]">
               <div className="flex flex-col gap-6 mt-8">
                 <Link to="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-                  <img src={eeduLogo} alt="EEDU" className="h-7" />
+                  <img src={eeduLogo} alt="EEDU" className="h-9" />
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) =>

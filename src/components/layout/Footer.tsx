@@ -8,7 +8,7 @@ export const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="lg:col-span-1">
           <div className="flex items-center mb-4">
-            <img src={eeduLogo} alt="EEDU" className="h-8 brightness-0 invert" />
+            <img src={eeduLogo} alt="EEDU" className="h-10 brightness-0 invert" />
           </div>
           <p className="text-sm opacity-60 leading-relaxed max-w-[240px]">
             Gestão integrada para a educação acontecer.
