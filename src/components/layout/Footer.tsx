@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import eeduLogo from '@/assets/eedu-logo.png';
+import didaxLogo from '@/assets/didax-logo.png';
 
 export const Footer = () => (
   <footer className="bg-foreground text-primary-foreground">
@@ -8,10 +8,10 @@ export const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="lg:col-span-1">
           <div className="flex items-center mb-4">
-            <img src={eeduLogo} alt="EEDU" className="h-12 brightness-0 invert" />
+            <img src={didaxLogo} alt="DIDAX" className="h-12 brightness-0 invert" />
           </div>
           <p className="text-sm opacity-60 leading-relaxed max-w-[240px]">
-            Gestão integrada para a educação acontecer.
+          Gestão integrada para a educação acontecer.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export const Footer = () => (
       </div>
 
       <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-xs opacity-40">© 2024 EEDU. Todos os direitos reservados.</p>
+        <p className="text-xs opacity-40">© 2024 DIDAX. Todos os direitos reservados.</p>
         <div className="flex gap-6">
           <button className="text-xs opacity-40 hover:opacity-70 transition-opacity">Privacidade</button>
           <button className="text-xs opacity-40 hover:opacity-70 transition-opacity">Termos de Uso</button>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu } from 'lucide-react';
-import eeduLogo from '@/assets/eedu-logo.png';
+import didaxLogo from '@/assets/didax-logo.png';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { PresentationModal } from '@/components/modals/PresentationModal';
@@ -53,7 +53,7 @@ export const Header = () => {
       >
         <div className="section-container flex items-center justify-between h-16 lg:h-[72px]">
           <Link to="/" className="flex items-center">
-            <img src={eeduLogo} alt="EEDU" className="h-12" />
+            <img src={didaxLogo} alt="DIDAX" className="h-12" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -98,7 +98,7 @@ export const Header = () => {
             <SheetContent side="right" className="w-[280px]">
               <div className="flex flex-col gap-6 mt-8">
                 <Link to="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-                  <img src={eeduLogo} alt="EEDU" className="h-11" />
+                  <img src={didaxLogo} alt="DIDAX" className="h-11" />
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) =>
