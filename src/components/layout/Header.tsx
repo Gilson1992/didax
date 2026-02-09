@@ -56,7 +56,7 @@ export const Header = () => {
             <img src={didaxLogo} alt="DIDAX" className="h-12" />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1 bg-muted/60 backdrop-blur-sm rounded-full px-1.5 py-1 border border-border/50">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
               const isRoute = link.href === '/siduc';
               const isActive = isRoute && location.pathname === '/siduc';
@@ -65,10 +65,8 @@ export const Header = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className={`text-sm font-medium transition-all px-4 py-1.5 rounded-full ${
-                    isActive
-                      ? 'bg-primary text-primary-foreground shadow-sm'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  className={`text-sm font-medium transition-colors ${
+                    isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   {link.label}
@@ -77,7 +75,7 @@ export const Header = () => {
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all px-4 py-1.5 rounded-full"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </button>
