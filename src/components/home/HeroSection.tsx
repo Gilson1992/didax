@@ -28,7 +28,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <div className="section-badge mb-6">
-              Gestão educacional inteligente
+              <span className="w-1.5 h-1.5 rounded-full gradient-primary" />
               Gestão educacional inteligente
             </div>
 
