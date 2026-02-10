@@ -53,18 +53,12 @@ export const Footer = () => (
             <li className="flex items-center gap-2 text-sm opacity-60">
               <Mail className="w-4 h-4 flex-shrink-0" /> contato@didax.com.br
             </li>
-            <li className="flex items-center gap-2 text-sm opacity-60">
-              <Phone className="w-4 h-4 flex-shrink-0" /> (11) 0000-0000
-            </li>
-            <li className="flex items-center gap-2 text-sm opacity-60">
-              <MapPin className="w-4 h-4 flex-shrink-0" /> São Paulo, SP
-            </li>
           </ul>
         </div>
       </div>
 
       <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-xs opacity-40">© 2024 DIDAX. Todos os direitos reservados.</p>
+        <p className="text-xs opacity-40">© 2025 DIDAX. Todos os direitos reservados.</p>
         <div className="flex gap-6">
           <button className="text-xs opacity-40 hover:opacity-70 transition-opacity">Privacidade</button>
           <button className="text-xs opacity-40 hover:opacity-70 transition-opacity">Termos de Uso</button>

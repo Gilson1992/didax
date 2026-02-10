@@ -18,7 +18,7 @@ export const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBg})` }}>
+    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBg})`, backgroundPosition: 'center 10%' }}>
       <div className="absolute inset-0 bg-background/40" />
       <div className="section-container">
         <div className="relative z-10 max-w-2xl">
