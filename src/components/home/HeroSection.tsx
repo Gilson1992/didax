@@ -65,14 +65,7 @@ export const HeroSection = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="hidden md:block"
-          >
-            <EcosystemMap />
-          </motion.div>
+          <div />
         </div>
       </div>
 
