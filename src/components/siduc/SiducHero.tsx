@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { DashboardPreview } from './DashboardPreview';
 import { DemoModal } from '@/components/modals/DemoModal';
 import siducLogo from '@/assets/siduc-logo.png';
+import heroBg from '@/assets/siduc-hero-bg.png';
 
 const bullets = [
   'Centralização e padronização',
@@ -18,8 +19,12 @@ export const SiducHero = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section className="pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
-      <div className="section-container">
+    <section
+      className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${heroBg})` }}
+    >
+      <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+      <div className="relative section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -62,13 +67,8 @@ export const SiducHero = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <DashboardPreview />
-          </motion.div>
+          {/* Background image fills section, no right column needed */}
+          <div />
         </div>
       </div>
       <DemoModal open={modalOpen} onOpenChange={setModalOpen} />
