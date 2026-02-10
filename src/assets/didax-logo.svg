@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" fill="none">
+<g transform="translate(48,48.0) scale(0.515625)">
+<g>
+
+  <rect x="209.92000000000002" y="-64.0" width="92.16" height="284.8" rx="23.04" fill="#0843BB"
+        transform="rotate(45 256.0 256.0)"/>
+  <rect x="209.92000000000002" y="291.2" width="92.16" height="284.8" rx="23.04" fill="#0843BB"
+        transform="rotate(45 256.0 256.0)"/>
+
+  <rect x="209.92000000000002" y="-64.0" width="92.16" height="284.8" rx="23.04" fill="#0843BB"
+        transform="rotate(-45 256.0 256.0)"/>
+  <rect x="209.92000000000002" y="291.2" width="92.16" height="284.8" rx="23.04" fill="#0843BB"
+        transform="rotate(-45 256.0 256.0)"/>
+</g>
+</g>
+
+<text x="356" y="232.5" fill="#0F172A"
+      font-family="Plus Jakarta Sans, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="150"
+      font-weight="700" letter-spacing="6">DIDAX</text>
+</svg>

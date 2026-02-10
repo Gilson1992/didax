@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu } from 'lucide-react';
-import didaxLogo from '@/assets/didax-logo.png';
+import didaxLogo from '@/assets/didax-logo.svg';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { PresentationModal } from '@/components/modals/PresentationModal';

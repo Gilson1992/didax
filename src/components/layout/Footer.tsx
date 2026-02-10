@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import didaxLogo from '@/assets/didax-logo.png';
+import didaxLogo from '@/assets/didax-logo.svg';
 
 export const Footer = () => (
   <footer className="bg-foreground text-primary-foreground">
