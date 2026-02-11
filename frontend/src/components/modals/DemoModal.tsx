@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -30,13 +30,30 @@ const moduleOptions = [
   { label: "Usuários e Permissões", code: "usuarios_permissoes" },
 ];
 
+const isValidEmail = (email: string) =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
+function friendlyApiError(status: number, bodyText: string) {
+
+  try {
+    const parsed = JSON.parse(bodyText);
+    const fieldErrors = parsed?.errors?.fieldErrors;
+
+    if (fieldErrors?.email?.[0]) return "Informe um e-mail válido (ex: nome@dominio.com).";
+    if (parsed?.message && typeof parsed.message === "string") return parsed.message;
+  } catch {}
+
+  if (status === 422) return "Verifique os campos e tente novamente.";
+  return `Erro ${status}. Tente novamente.`;
+}
+
 export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
 
+  // campos do form
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [cityUf, setCityUf] = useState("");
@@ -60,8 +77,24 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
     setObs("");
   };
 
+  const emailOk = useMemo(() => isValidEmail(email), [email]);
+  const canSubmit = useMemo(() => {
+    return (
+      !loading &&
+      name.trim().length > 0 &&
+      cityUf.trim().length > 0 &&
+      emailOk &&
+      selectedModules.length > 0
+    );
+  }, [loading, name, cityUf, emailOk, selectedModules.length]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!name.trim()) return alert("Informe seu nome.");
+    if (!cityUf.trim()) return alert("Informe Município / UF.");
+    if (!emailOk) return alert("Informe um e-mail válido (ex: nome@dominio.com).");
+    if (selectedModules.length === 0) return alert("Selecione ao menos 1 módulo.");
 
     try {
       setLoading(true);
@@ -74,7 +107,7 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
         municipality_uf: cityUf.trim(),
         email: email.trim(),
         whatsapp: whatsapp.trim() || undefined,
-        modules: selectedModules, // ✅ codes diretos
+        modules: selectedModules,
         observations: obs.trim() || undefined,
         hp: "",
       };
@@ -87,12 +120,12 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
 
       if (!res.ok) {
         const contentType = res.headers.get("content-type") || "";
-        const body = contentType.includes("application/json")
+        const bodyText = contentType.includes("application/json")
           ? JSON.stringify(await res.json())
           : await res.text();
 
-        console.error("API ERROR", res.status, body);
-        alert(`Erro ${res.status}: ${body}`);
+        console.error("API ERROR", res.status, bodyText);
+        alert(friendlyApiError(res.status, bodyText));
         return;
       }
 
@@ -144,7 +177,7 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
           <form onSubmit={handleSubmit} className="space-y-4 mt-2">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="demo-name">Nome</Label>
+                <Label htmlFor="demo-name">Nome *</Label>
                 <Input
                   id="demo-name"
                   placeholder="Seu nome completo"
@@ -168,7 +201,7 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="demo-city">Município / UF</Label>
+                <Label htmlFor="demo-city">Município / UF *</Label>
                 <Input
                   id="demo-city"
                   placeholder="Ex: São Paulo / SP"
@@ -179,7 +212,7 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="demo-email">E-mail</Label>
+                <Label htmlFor="demo-email">E-mail *</Label>
                 <Input
                   id="demo-email"
                   type="email"
@@ -189,6 +222,9 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={loading}
                 />
+                {!emailOk && email.trim().length > 0 ? (
+                  <p className="text-xs text-destructive">Informe um e-mail válido.</p>
+                ) : null}
               </div>
             </div>
 
@@ -204,7 +240,7 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
             </div>
 
             <div className="space-y-2">
-              <Label>Módulos de interesse</Label>
+              <Label>Módulos de interesse *</Label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {moduleOptions.map((opt) => (
                   <label
@@ -220,6 +256,12 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
                   </label>
                 ))}
               </div>
+
+              {selectedModules.length === 0 ? (
+                <p className="text-xs text-muted-foreground">
+                  Selecione ao menos 1 módulo.
+                </p>
+              ) : null}
             </div>
 
             <div className="space-y-2">
@@ -234,7 +276,12 @@ export const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
               />
             </div>
 
-            <Button type="submit" variant="gradient" className="w-full" disabled={loading}>
+            <Button
+              type="submit"
+              variant="gradient"
+              className="w-full"
+              disabled={!canSubmit}
+            >
               {loading ? (
                 <>
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
